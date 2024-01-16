@@ -1,5 +1,6 @@
 #include "Part.h"
 
+// 앞 Part를 따라가는 함수
 void Part::FollowFront(Part* _Part)
 {
 	Part* NextBody = _Part->Back;

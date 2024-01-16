@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include <ConsoleEngine/ConsoleObject.h>
 
 class Part : public ConsoleObject

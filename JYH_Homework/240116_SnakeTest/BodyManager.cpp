@@ -45,6 +45,7 @@ void BodyManager::Update()
 
 			AllRange.remove(Object->GetPos());
 		}
+		int a = 0;
 	}
 
 	AllRange;
@@ -65,7 +66,7 @@ void BodyManager::Update()
 
 		// 랜덤한 위치가 지정됐으므로
 		CurBody = GetCore()->CreateObject<Body>();
-		CurBody->SetRenderChar('#');
+		//CurBody->SetRenderChar('#');
 		CurBody->SetPos(CreateBodyPos);
 	}
 }

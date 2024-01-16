@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include <vector>
 #include <ConsoleEngine/EngineCore.h>
 #include "Head.h"
 #include "BodyManager.h"
@@ -14,7 +13,7 @@ enum class SnakeOrder
 int main()
 {
     EngineCore EngineCore;
-    EngineCore.Init({ 10, 10 });
+    EngineCore.Init({ 5, 5 });
 
     {
         // Player* NewObject = new Player();
@@ -23,7 +22,7 @@ int main()
 
     {
         Head* NewPlayer = EngineCore.CreateObject<Head>();
-        NewPlayer->SetPos({ EngineCore.Screen.GetScreenX() / 2, EngineCore.Screen.GetScreenY() - 2 });
+        NewPlayer->SetPos({ EngineCore.Screen.GetScreenX() / 2, EngineCore.Screen.GetScreenY() / 2 });
         int a = 0;
     }
 
