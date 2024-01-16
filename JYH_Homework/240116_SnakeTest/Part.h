@@ -35,6 +35,8 @@ public:
 		PrevPos = _Pos;
 	}
 
+	void FollowFront(Part* _Part);
+
 protected:
 	Part* Front = nullptr;
 	Part* Back = nullptr;

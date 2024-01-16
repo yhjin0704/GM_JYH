@@ -2,6 +2,6 @@
 
 enum class SnakeType
 {
-    Head, // = 0
-    Body, // = 1
+    Body,
+    Head,
 };

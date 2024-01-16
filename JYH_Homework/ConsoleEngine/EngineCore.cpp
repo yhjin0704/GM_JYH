@@ -177,7 +177,7 @@ void EngineCore::Start()
                 }
             }
         }
-
+        AllManager.clear();
         AllUpdateObject.clear();
     }
 }

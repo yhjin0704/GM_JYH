@@ -37,6 +37,7 @@ void Head::Update()
 			PrevMove = 'a';
 			PrevPos = GetPos();
 			AddPos(Left);
+			FollowFront(this);
 		}
 		break;
 	case 'S':
@@ -49,6 +50,7 @@ void Head::Update()
 			PrevMove = 's';
 			PrevPos = GetPos();
 			AddPos(Down);
+			FollowFront(this);
 		}
 		break;
 	case 'W':
@@ -61,6 +63,7 @@ void Head::Update()
 			PrevMove = 'w';
 			PrevPos = GetPos();
 			AddPos(Up);
+			FollowFront(this);
 		}
 		break;
 	case 'D':
@@ -73,9 +76,7 @@ void Head::Update()
 			PrevMove = 'd';
 			PrevPos = GetPos();
 			AddPos(Right);
-
-			//int2 BackPrevPos = Back->GetPos();
-			//Back->SetPos(PrevPos);
+			FollowFront(this);
 		}
 		break;
 	case '1':
@@ -102,7 +103,6 @@ void Head::Update()
 			Back = NewBody;
 			NewBody->SetFront(this);
 			NewBody->SetPos(PrevPos);
-			int a = 0;
 		}
 		else
 		{
