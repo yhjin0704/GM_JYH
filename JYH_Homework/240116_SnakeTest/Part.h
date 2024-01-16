@@ -5,6 +5,35 @@
 class Part : public ConsoleObject
 {
 public:
+	Part* GetFront()
+	{
+		return Front;
+	}
+
+	Part* GetBack()
+	{
+		return Back;
+	}
+
+	int2 GetPrevPos()
+	{
+		return PrevPos;
+	}
+
+	void SetFront(Part* _Part)
+	{
+		Front = _Part;
+	}
+
+	void SetBack(Part* _Part)
+	{
+		Back = _Part;
+	}
+
+	void SetPrevPos(int2 _Pos)
+	{
+		PrevPos = _Pos;
+	}
 
 protected:
 	Part* Front = nullptr;

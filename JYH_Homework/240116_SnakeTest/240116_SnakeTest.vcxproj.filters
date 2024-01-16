@@ -14,5 +14,6 @@
     <ClInclude Include="GlobalValue.h" />
     <ClInclude Include="Head.h" />
     <ClInclude Include="Part.h" />
+    <ClInclude Include="ContentsEnum.h" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,6 @@
 class Head : public Part
 {
 public:
-	Head();
 
 protected:
 	void Update() override;

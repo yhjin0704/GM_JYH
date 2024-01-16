@@ -3,15 +3,12 @@
 #include <ConsoleEngine/EngineCore.h>
 #include "BodyManager.h"
 #include "Body.h"
+#include "ContentsEnum.h"
 
 // 
 // 1. 내가 특정 방향으로 진행했다면 다음 입력때는 그 반대방향으로는 갈수가 없다.
 //    내가 이동하는 방향의 반대방향으로는 가면 안된다.
 // 2. 내가 이동을 해서 CurBody를 획득했다면 그 다음부터 그 바디는 나를 따라와야 한다.
-
-Head::Head()
-{
-}
 
 void Head::Update()
 {
@@ -76,6 +73,9 @@ void Head::Update()
 			PrevMove = 'd';
 			PrevPos = GetPos();
 			AddPos(Right);
+
+			//int2 BackPrevPos = Back->GetPos();
+			//Back->SetPos(PrevPos);
 		}
 		break;
 	case '1':
@@ -95,10 +95,27 @@ void Head::Update()
 
 	if (CurBody->GetPos() == GetPos())
 	{
-		Back = CurBody;
 		BodyManager::ResetBody();
-		Body* NewBody = GetCore()->CreateObject<Body>();
-		int a = 0;
+		Body* NewBody = GetCore()->CreateObject<Body>(SnakeType::Body, SnakeType::Body);
+		if (nullptr == Back)
+		{
+			Back = NewBody;
+			NewBody->SetFront(this);
+			NewBody->SetPos(PrevPos);
+			int a = 0;
+		}
+		else
+		{
+			// BackCheck == 첫 바디의 Back
+			Part* BackCheck = Back;
+			while (nullptr != BackCheck->GetBack())
+			{
+				BackCheck = BackCheck->GetBack();
+			}
+			NewBody->SetFront(BackCheck);
+			BackCheck->SetBack(NewBody);
+			NewBody->SetPos(BackCheck->GetPrevPos());
+		}
 	}
 	
 }
