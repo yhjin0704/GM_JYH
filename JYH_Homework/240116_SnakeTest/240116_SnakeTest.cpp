@@ -11,9 +11,7 @@ int main()
     EngineCore.Init({ 30, 30 });
 
     {
-        // Player* NewObject = new Player();
         GBodyManager = EngineCore.CreateManager<BodyManager>(0);
-        //GWinManager = EngineCore.CreateManager<WinManager>(1);
     }
 
     {
