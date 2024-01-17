@@ -96,8 +96,8 @@ void Head::Update()
 
 	if (CurBody->GetPos() == GetPos())
 	{
+		Body* NewBody = CurBody;
 		BodyManager::ResetBody();
-		Body* NewBody = GetCore()->CreateObject<Body>(SnakeType::Body, SnakeType::Body);
 		if (nullptr == Back)
 		{
 			Back = NewBody;
