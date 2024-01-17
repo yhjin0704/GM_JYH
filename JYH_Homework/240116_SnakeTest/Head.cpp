@@ -13,10 +13,7 @@
 void Head::Update()
 {
 	int InputCount = _kbhit();
-	/*if (0 == InputCount)
-	{
-		return;
-	}*/
+
 	if (0 != InputCount)
 	{
 
@@ -120,6 +117,47 @@ void Head::Update()
 		return;
 	}
 
+	{
+		int ScreenX = GetCore()->Screen.GetScreenX();
+		int ScreenY = GetCore()->Screen.GetScreenY();
+
+		int2 HeadPos = GetPos();
+		if (0 > HeadPos.X)
+		{
+			printf_s("Game Over");
+			GetCore()->EngineEnd();
+		}
+		else if (ScreenX <= HeadPos.X)
+		{
+			printf_s("Game Over");
+			GetCore()->EngineEnd();
+		}
+		else if (0 >= HeadPos.Y)
+		{
+			printf_s("Game Over");
+			GetCore()->EngineEnd();
+		}
+		else if (ScreenY <= HeadPos.Y)
+		{
+			printf_s("Game Over");
+			GetCore()->EngineEnd();
+		}
+		if (nullptr != Back)
+		{
+			Part* CollideBody = Back;
+
+			while (nullptr != CollideBody->GetBack())
+			{
+				if (CollideBody->GetPos() == HeadPos)
+				{
+					printf_s("Game Over");
+					GetCore()->EngineEnd();
+				}
+				CollideBody = CollideBody->GetBack();
+			}
+		}
+	}
+
 	Body* CurBody = BodyManager::GetCurBody();
 
 	if (CurBody->GetPos() == GetPos())
@@ -128,9 +166,7 @@ void Head::Update()
 		BodyManager::ResetBody();
 		if (nullptr == Back)
 		{
-			NewBody->SetFront(this);
-			this->SetBack(NewBody);
-			NewBody->SetPos(PrevPos);
+			ConnectBody(NewBody);
 		}
 		else
 		{
@@ -140,9 +176,7 @@ void Head::Update()
 			{
 				BackCheck = BackCheck->GetBack();
 			}
-			NewBody->SetFront(BackCheck);
-			BackCheck->SetBack(NewBody);
-			NewBody->SetPos(BackCheck->GetPrevPos());
+			BackCheck->ConnectBody(NewBody);
 		}
 	}
 	return;

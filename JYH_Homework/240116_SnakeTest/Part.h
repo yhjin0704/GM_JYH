@@ -35,6 +35,7 @@ public:
 	}
 
 	void FollowFront(Part* _Part);
+	void ConnectBody(Part* _Body);
 
 protected:
 	Part* Front = nullptr;

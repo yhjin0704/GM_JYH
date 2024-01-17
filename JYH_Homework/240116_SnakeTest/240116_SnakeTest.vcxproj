@@ -149,6 +149,7 @@
     <ClCompile Include="GlobalValue.cpp" />
     <ClCompile Include="Head.cpp" />
     <ClCompile Include="Part.cpp" />
+    <ClCompile Include="WinManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Body.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="GlobalValue.h" />
     <ClInclude Include="Head.h" />
     <ClInclude Include="Part.h" />
+    <ClInclude Include="WinManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConsoleEngine\ConsoleEngine.vcxproj">

@@ -3,12 +3,7 @@
 #include "Head.h"
 #include "BodyManager.h"
 #include "GlobalValue.h"
-
-enum class SnakeOrder
-{
-    Body,
-    Head,
-};
+#include "ContentsEnum.h"
 
 int main()
 {
@@ -18,6 +13,7 @@ int main()
     {
         // Player* NewObject = new Player();
         GBodyManager = EngineCore.CreateManager<BodyManager>(0);
+        //GWinManager = EngineCore.CreateManager<WinManager>(1);
     }
 
     {
