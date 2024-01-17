@@ -13,7 +13,7 @@ enum class SnakeOrder
 int main()
 {
     EngineCore EngineCore;
-    EngineCore.Init({ 5, 5 });
+    EngineCore.Init({ 30, 30 });
 
     {
         // Player* NewObject = new Player();
